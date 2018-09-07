@@ -29,6 +29,11 @@ class ClientInput implements Runnable
         {
             String name = reader.readLine();
             clientObject.update(name);
+            if(name.equals("Connection closed by host"))
+            {
+                clientObject.closeIt();
+                return;
+            }
         }
     }catch(Exception e){
         System.out.println("Connection error, most probably closed : "+e);
@@ -173,6 +178,7 @@ public class ClientObject extends javax.swing.JFrame {
         String message = msgInput.getText();
         if(message.length() > 0)
         {
+            message = join.username + ": " + message;
             writer.println(message);
             writer.flush();
             msgInput.setText("");

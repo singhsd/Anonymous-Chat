@@ -167,7 +167,7 @@ public class Host extends javax.swing.JFrame {
             serverThread.start();
             btnHost.setText("Stop");
             portInput.setEditable(false);
-            //jLabel4.setVisible(true);
+            jLabel4.setVisible(true);
             //connInput.setVisible(true);
         }
         else
